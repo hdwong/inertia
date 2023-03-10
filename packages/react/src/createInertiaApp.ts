@@ -1,5 +1,5 @@
-import { Page, PageProps, PageResolver, setupProgress } from '@inertiajs/core'
-import { ComponentType, createElement, FunctionComponent, Key, ReactElement, ReactNode } from 'react'
+import { Page, PageProps, PageResolver, setupProgress } from 'b2_inertiajs_core'
+import { ComponentType, createElement, FunctionComponent, Key, ReactElement, ReactNode, Fragment } from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './App'
 
@@ -76,7 +76,8 @@ export default async function createInertiaApp<SharedProps extends PageProps = P
 > {
   const isServer = typeof window === 'undefined'
   const el = isServer ? null : document.getElementById(id)
-  const initialPage = page || JSON.parse(el.dataset.page)
+  const elData = isServer ? null : document.getElementById(id + '-data'); // 从 app-data 中读取
+  const initialPage = page || JSON.parse(atob(elData.dataset.page));      // base64_decode
   // @ts-expect-error
   const resolveComponent = (name) => Promise.resolve(resolve(name)).then((module) => module.default || module)
 
@@ -103,15 +104,23 @@ export default async function createInertiaApp<SharedProps extends PageProps = P
 
   if (isServer) {
     const body = await render(
-      createElement(
-        'div',
-        {
-          id,
-          'data-page': JSON.stringify(initialPage),
-        },
-        // @ts-expect-error
-        reactApp,
-      ),
+      createElement(Fragment, null,
+        createElement(
+          'div',
+          {
+            id,
+          },
+          // @ts-expect-error
+          reactApp,
+        ),
+        createElement(
+          'div',
+          {
+            id: id + '-data',
+            'data-page': btoa(JSON.stringify(initialPage)), // 增加 app-data 并 base64_encode
+          },
+        )
+      )
     )
 
     return { head, body }

@@ -373,6 +373,12 @@ export class Router {
         }
 
         const pageResponse: Page = response.data
+        if (typeof pageResponse.component === 'undefined') {
+          // inertiaResult 特殊处理
+          pageResponse.component = this.page.component
+          pageResponse.url = this.page.url
+          this.page.props.errors = pageResponse.props.errors || {}
+        }
         if (only.length && pageResponse.component === this.page.component) {
           pageResponse.props = { ...this.page.props, ...pageResponse.props }
         }

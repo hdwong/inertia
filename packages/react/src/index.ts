@@ -1,4 +1,4 @@
-import { router as Router } from '@inertiajs/core'
+import { router as Router } from 'b2_inertiajs_core'
 
 export const router = Router
 export { default as createInertiaApp } from './createInertiaApp'
