@@ -77,7 +77,7 @@ export default async function createInertiaApp<SharedProps extends PageProps = P
   const isServer = typeof window === 'undefined'
   const el = isServer ? null : document.getElementById(id)
   const elData = isServer ? null : document.getElementById(id + '-data'); // 从 app-data 中读取
-  const initialPage = page || JSON.parse(decodeURIComponent(atob(elData.dataset.page)));      // base64_decode
+  const initialPage = page || (elData ? JSON.parse(decodeURIComponent(atob(elData.dataset.page))) : {});  // base64_decode, 并解析为 json
   // @ts-expect-error
   const resolveComponent = (name) => Promise.resolve(resolve(name)).then((module) => module.default || module)
 
