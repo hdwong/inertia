@@ -7,9 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For changes prior to v1.0.0, see the [legacy releases](https://legacy.inertiajs.com/releases).
 
-## [Unreleased](https://github.com/inertiajs/inertia/compare/v1.0.6...HEAD)
+## [Unreleased](https://github.com/inertiajs/inertia/compare/v1.0.12...HEAD)
 
-- Nothing
+- Nothing!
+
+## [v1.0.12](https://github.com/inertiajs/inertia/compare/v1.0.11...v1.0.12)
+
+- Fix type of `onClick` for `Link` component in React and Vue ([#1699](https://github.com/inertiajs/inertia/pull/1699), [#1701](https://github.com/inertiajs/inertia/pull/1701))
+
+## [v1.0.11](https://github.com/inertiajs/inertia/compare/v1.0.10...v1.0.11)
+
+- Fix form helper types for `setDefaults()` method (React) and `defaults()` method (Vue) ([#1504](https://github.com/inertiajs/inertia/pull/1504))
+- Fix interface issue with `useForm()` in React and Vue adapters ([#1649](https://github.com/inertiajs/inertia/pull/1649))
+
+## [v1.0.10](https://github.com/inertiajs/inertia/compare/v1.0.9...v1.0.10)
+
+- Fix Svelte's `useForm` helper ([#1610](https://github.com/inertiajs/inertia/pull/1610))
+
+## [v1.0.9](https://github.com/inertiajs/inertia/compare/v1.0.8...v1.0.9)
+
+- Fix `<Head>` vNode handling in Vue 3 adapter ([#1590](https://github.com/inertiajs/inertia/pull/1590))
+- Add Svelte 4 support ([60699c7](https://github.com/inertiajs/inertia/commit/60699c7c5978eebd393e0333b567d8e465f4b58f))
+
+## [v1.0.8](https://github.com/inertiajs/inertia/compare/v1.0.7...v1.0.8)
+
+### Fixed
+
+- Fix `<Head>` vNode handling in Vue 3 adapter ([#1570](https://github.com/inertiajs/inertia/pull/1570))
+- Fix watching remembered data in Vue 3 adapter ([#1571](https://github.com/inertiajs/inertia/pull/1571))
+
+## [v1.0.7](https://github.com/inertiajs/inertia/compare/v1.0.6...v1.0.7)
+
+### Fixed
+
+- Fix `<Head>` fragment detection in Vue 3 adapter ([#1509](https://github.com/inertiajs/inertia/pull/1509))
 
 ## [v1.0.6](https://github.com/inertiajs/inertia/compare/v1.0.5...v1.0.6)
 

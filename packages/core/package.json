@@ -1,6 +1,6 @@
 {
   "name": "b2_inertiajs_core",
-  "version": "1.0.6",
+  "version": "1.0.12",
   "license": "MIT",
   "description": "A framework for creating server-driven single page apps.",
   "contributors": [
